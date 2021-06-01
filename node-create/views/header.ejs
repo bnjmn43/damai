@@ -1,0 +1,19 @@
+<header>
+  <div class="float-left header-left">
+    <a href="/"><img class="logo" src="/images/logo.svg"></a>
+  </div>
+  <div class="float-right header-right">
+    <a href="/menu" class="top-btn">メニュー</a>
+    <a href="/list" class="top-btn">ブログ</a>
+    <a href="/reserve" class="top-btn">予約</a>
+    <a href="/about" class="top-btn">ポイントカード</a>
+    <% if (locals.isLoggedIn) { %>
+      <a href="/mypage/<%= locals.userid %>" class="top-btn">Myページ</a>
+      <a href="/logout" class="top-btn">ログアウト</a>
+    <% } else { %>
+      <a href="/signup" class="top-btn">カード会員登録</a>
+      
+      <a href="/login" class="top-btn">ログイン</a>
+    <% } %>
+  </div>
+</header>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DAMAI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/675fd5b762.js" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <%- include('header'); %>
+    <div class="wrapper">
+      <div class="mt-5 mypage-wrapper">
+        <div class="menudetailpage-title">
+          <h3 class="pt-5 mt-5">WEB予約</h3>
+          <hr color="#5f5d60">
+        </div>
+        <div class="pt-3 pb-5 reserve-wrapper">
+          <div class="reserve-container">
+            <div class="mx-5 flows">
+                <div class="flow-icon">
+                  <img src="/images/reserve1.svg">
+                  <p>日時選択</p>
+                </div>
+                <div class="flow-icon">
+                  <img src="/images/reserve2.svg">
+                  <p>メニュー選択</p>
+                </div>
+                <div class="flow-icon">
+                  <img src="/images/reserve3.svg">
+                  <p>予約確認</p>
+                </div>
+                <div class="flow-icon">
+                  <img src="/images/reserve4.svg">
+                  <p>予約完了</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="reserve-message">
+            　<hr color="#F56D99">
+              <p>
+                ご予約はお電話もしくは下記のカレンダーにて受け付けております。<br>
+                当店は完全予約制ですので、ご予約のうえご来店ください。早朝や夜遅くのご相談も承っております。
+              </p>
+              <p>
+                ご予約は前日18時、ご予約の変更・キャンセルは前日の14時まで受け付けております。<br>
+                当日やむなくキャンセルされる場合は必ずご連絡ください。
+              </p>
+              <h5>☎ 00-0000-0000 (受付時間：10:00～21:00)</h5>
+              <hr class="mb-5" color="#F56D99">
+            </div>
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%230B8043&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0" style="border-width:0" class="w-100" height="600" frameborder="0" scrolling="no"></iframe>
+          </div>
+        </div>
+      </div>
+      <p id="pageTop"><a href="#"><i class="fa fa-chevron-up"></i></a></p>
+    </div>
+    <%- include('footer'); %>
+    <script>
+      $(function() {
+        var delaySpeed = 700; 
+        var fadeSpeed = 500;
+        $(window).on('load', function() {
+          $('li').each(function(i){
+            $(this).delay(i*(delaySpeed)).animate({
+              'opacity' : '1'
+            },fadeSpeed);
+          });
+        });
+        var topBtn=$('#pageTop');
+        topBtn.hide();
+        $(window).scroll(function(){
+          if($(this).scrollTop() > 80){
+            topBtn.fadeIn();
+          }else{
+            topBtn.fadeOut();
+          }
+        });
+        topBtn.click(function(){
+          $('body, html').animate({
+          scrollTop: 0}, 500);
+          return false;
+        });
+      });
+    </script>  
+  </body>
+</html>

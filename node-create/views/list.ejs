@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DAMAI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/675fd5b762.js" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/send_url.js"></script>
+  </head>
+  <body>
+    <%- include('header'); %>
+    <div class="list-wrapper">
+      <div class="mt-5 mypage-wrapper">
+        <div class="menudetailpage-title">
+          <h3 class="pt-5 mt-5">Damai美容ブログ</h3>
+          <hr color="#5f5d60">
+        </div>
+        <div class="main-wrapper">
+          <p class="mt-4 text-center">美容に関するお役立ち情報を発信しています</p>
+          <ul class="my-4 list">
+            <% articles.forEach((article) => { %>
+            <li>
+              <% if (article.category === 'limited') {%>
+                <i>会員限定</i>
+              <% } %>
+              <h2><%= article.title %></h2>
+              <p><%= article.summary %></p>
+              <a href="/article/<%= article.id %>">続きを読む</a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+      <p id="pageTop"><a href="#"><i class="fa fa-chevron-up"></i></a></p>
+    </div>
+    <%- include('footer'); %>
+    <script>
+      $(function() {
+        var topBtn=$('#pageTop');
+        topBtn.hide();
+        $(window).scroll(function(){
+          if($(this).scrollTop() > 80){
+            topBtn.fadeIn();
+          }else{
+            topBtn.fadeOut();
+          }
+        });
+        topBtn.click(function(){
+          $('body, html').animate({
+          scrollTop: 0}, 500);
+          return false;
+        });
+      });
+    </script>  
+  </body>
+</html>
