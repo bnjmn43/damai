@@ -1,1 +1,1 @@
-To run this site, you need to install node modules and create database.
+You can see this page on "https://damai.herokuapp.com/".
