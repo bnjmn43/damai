@@ -9,19 +9,11 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: 'us-cdbr-east-04.cleardb.com',
   user: 'bfd7845892df2b',
   password: '4d8a14ef',
   database: 'heroku_c8e21777b5ac28e'
-});
-
-connection.connect((err) => {
-  if (err) {
-    console.log('error connecting: ' + err.stack);
-    return;
-  }
-  console.log('success');
 });
 
 app.use(cookieParser("secret_passcode"));
