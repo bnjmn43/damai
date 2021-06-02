@@ -10,9 +10,9 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Benjamin-070403',
+  host: 'us-cdbr-east-04.cleardb.com',
+  user: 'bfd7845892df2b',
+  password: '4d8a14ef',
   database: 'node_create_database'
 });
 
