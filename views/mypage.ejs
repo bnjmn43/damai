@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DAMAI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/send_url.js"></script>
+  </head>
+  <body>
+    <%- include('header'); %>
+    <div class="wrapper">
+      <div class="mt-5 mypage-wrapper">
+        <div class="menudetailpage-title">
+          <h3 class="pt-5 mt-5">Myページ</h3>
+          <hr color="#5f5d60">
+        </div>
+        <div class="py-5 mypage-info">
+          <h6>ご登録情報</h6>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td style="width: 30%" class="font-weight-bold table-fee">お名前</td>
+                <td style="width: 70%" class="table-minute"><%= name %>　さま</td>
+              </tr>
+              <tr>
+                <td style="width: 30%" class="font-weight-bold table-fee">メールアドレス</td>
+                <td style="width: 70%" class="table-minute"><%= email %></td>
+              </tr>
+            </tbody>
+          </table>
+          <h6 class="mt-5">ご来店情報</h6>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td style="width: 30%" class="font-weight-bold table-fee">現在のポイント</td>
+                <% if (point === null) { %>
+                  <td style="width: 70%" class="table-minute">ポイントはありません</td>
+                <% } else { %>
+                  <td style="width: 70%" class="table-minute"><%= point %>ポイント</td>
+                <% } %>
+              </tr>
+              <tr>
+                <td style="width: 30%" class="font-weight-bold table-fee">最終ご来店日</td>
+                <% if (lastdate === null) { %>
+                  <td style="width: 70%" class="table-minute">ご来店はありません</td>
+                <% } else { %>
+                  <td style="width: 70%" class="table-minute"><%= lastdate %></td>
+                <% } %>
+              </tr>
+              <tr>
+                <td style="width: 30%" class="font-weight-bold table-fee">現在のご予約状況</td>
+                <% if (reserve === null) { %>
+                  <td style="width: 70%" class="table-minute">ご予約はありません</td>
+                <% } else { %>
+                  <td style="width: 70%" class="table-minute"><%= reserve %></td>
+                <% } %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>    
+    </div>
+    <%- include('footer'); %> 
+  </body>
+</html>

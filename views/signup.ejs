@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DAMAI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/675fd5b762.js" crossorigin="anonymous"></script>
+    <script src="/send_url.js"></script>
+  </head>
+  <body>
+    <%- include('header'); %>
+    <div class="list-wrapper">
+        <div class="mt-5 signuptop-wrapper">
+            <div class="text-center signup-title">
+              <p class="pt-5">
+                DamaiではWEBポイントカードを使用しております。
+                <br>
+                カードについては<a href="/about" class="font-weight-bold about-link">こちら</a>をご覧ください。
+            　</p>
+            </div>
+        </div>
+        <div class="signup-wrapper">
+            <div class="sign">
+                <div class="container">
+                  <div class="panel">
+                    <h1>ポイントカード新規登録</h1>
+                    <% if (errors.length > 0) { %>
+                      <ul class="errors">
+                        <% errors.forEach(error => { %>
+                          <li><%= error %></li>
+                        <% }); %>
+                      </ul>
+                    <% } %>
+                    <form action="/signup" method="post">
+                      <p>お名前　（例；山田　花子）</p>
+                      <input type="text" name="username">
+                      <p>メールアドレス</p>
+                      <input type="text" name="email">
+                      <p>パスワード</p>
+                      <input type="password" name="password">
+                      <input type="submit" value="登録する">
+                    </form>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <%- include('footer'); %>
+  </body>
+</html>
